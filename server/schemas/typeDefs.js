@@ -28,6 +28,7 @@ const typeDefs = gql`
   type Query {
     helloWorld: String
     spots: [Spot]
+    me: User
   }
 
   type Mutation {
