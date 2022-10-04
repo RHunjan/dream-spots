@@ -25,14 +25,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addSpot(
-      city: String
-      country: String
-      temperature: String
-      category: String
-      description: String
-      image: String
-    ): Spot
+    login(email: String!, password: String!): User
+    addUser(username: String!, email: String!, password: String!): User
+    addSpot(city: String): Spot
   }
 `;
 
