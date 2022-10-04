@@ -20,14 +20,27 @@ const typeDefs = gql`
     image: String
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
     helloWorld: String
+    spots: [Spot]
   }
 
   type Mutation {
-    login(email: String!, password: String!): User
-    addUser(username: String!, email: String!, password: String!): User
-    addSpot(city: String): Spot
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+
+    addSpot(
+      city: String
+      country: String
+      temperature: String
+      description: String
+      image: String
+    ): Spot
   }
 `;
 
