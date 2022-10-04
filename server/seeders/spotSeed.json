@@ -1,0 +1,27 @@
+[
+    {
+        
+        "city" : "Toronto", 
+        "country" : "Canada",
+        "temperature": "mild",
+        "description": "City on a lake",
+        "link": "url",
+        "spotId": "1"
+    },
+    {
+        "city" : "Ottawa", 
+        "country" : "Canada",
+        "temperature": "mild",
+        "description": "City on a lake",
+        "link": "url",
+        "spotId": "2"
+    },
+    {
+        "city" : "Ottawa", 
+        "country" : "Canada",
+        "temperature": "mild",
+        "description": "City on a lake",
+        "link": "url",
+        "spotId": "3"
+    }
+]
