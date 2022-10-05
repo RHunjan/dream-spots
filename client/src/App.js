@@ -1,23 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
-import Navbar from './components/Navbar';
-import Grid from '@mui/material/Grid';
+import React from "react";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import FrontPage from "./pages/FrontPage";
+import Header from "./components/Header";
+import { Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <>
-      <Grid container>kajdkfjakfdjakdfjkadjfkajdf</Grid>
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={SearchBooks} />
-          <Route exact path='/saved' component={SavedBooks} />
-          <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
-        </Switch>
-      </>
-    </Router>
+    <BrowserRouter>
+      <Box>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Grid container>
+                <FrontPage type="vacations"/>
+              </Grid>
+            }
+          />
+          <Route path="favorites" element={<FrontPage type='userFavorites' />} />
+        </Routes>
+      </Box>
+    </BrowserRouter>
   );
 }
 
