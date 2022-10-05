@@ -6,9 +6,9 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id })
-          .select("-__v -password")
-          .populate("savedSpots");
+        const userData = await User.findOne({ _id: context.user._id }).select(
+          "-__v -password"
+        );
 
         return userData;
       }
@@ -46,6 +46,7 @@ const resolvers = {
       return { token, user };
     },
 
+    //admin to add vacation spots
     addSpot: async (parent, args) => {
       const spot = await Spot.create(args);
 

@@ -36,6 +36,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
 
     addSpot(
+      spotId: ID
       city: String
       country: String
       temperature: String
