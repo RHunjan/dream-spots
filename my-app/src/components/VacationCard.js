@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-export default function VacationCard({vacation}) {
+export default function VacationCard({vacation, type}) {
   return (
     <Card sx={{ margin: '15px' }}>
       <CardMedia
@@ -30,7 +30,7 @@ export default function VacationCard({vacation}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">{vacation?.isFav ? <FavoriteIcon /> : <FavoriteBorderIcon />}</Button>
+        <Button onClick={() => console.log('Todo - Add or remove items in userInfo favorites')} size="small">{type === 'userFavorites' ? <FavoriteIcon /> : <FavoriteBorderIcon />}</Button>
       </CardActions>
     </Card>
   );
