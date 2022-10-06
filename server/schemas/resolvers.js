@@ -15,6 +15,7 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+
     helloWorld: () => {
       return "Hello purple world!";
     },
@@ -41,7 +42,6 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
-
       const token = signToken(user);
       return { token, user };
     },
