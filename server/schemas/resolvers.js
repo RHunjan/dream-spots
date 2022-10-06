@@ -6,9 +6,9 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select(
-          "-__v -password"
-        );
+        const userData = await User.findOne({ _id: context.user._id })
+          .select("-__v -password")
+          .populate("spots");
 
         return userData;
       }
@@ -51,6 +51,21 @@ const resolvers = {
       const spot = await Spot.create(args);
 
       return spot;
+    },
+
+    //add dream spot
+    addDreamSpot: async (parent, { spotId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { spots: spotId } },
+          { new: true }
+        ).populate("spots");
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
