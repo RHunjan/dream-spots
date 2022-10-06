@@ -54,11 +54,11 @@ const resolvers = {
     },
 
     //add dream spot
-    addDreamSpot: async (parent, { spotId }, context) => {
+    addDreamSpot: async (parent, args, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { spots: spotId } },
+          { $addToSet: { spots: args._id } },
           { new: true }
         ).populate("spots");
 
@@ -66,6 +66,10 @@ const resolvers = {
       }
 
       throw new AuthenticationError("You need to be logged in!");
+    },
+
+    users: async () => {
+      return User.find();
     },
   },
 };

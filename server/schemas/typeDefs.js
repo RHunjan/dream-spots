@@ -29,6 +29,7 @@ const typeDefs = gql`
     helloWorld: String
     spots: [Spot]
     me: User
+    users: [User]
   }
 
   type Mutation {
