@@ -76,27 +76,18 @@ const resolvers = {
     },
 
     //remove dream spot
-    removeDreamSpot: async (parent, { _id }, context) => {
-      if (context.user) {
-        const removeUserSpot = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $pull: { spots: { _id } } }
-        );
-
-        return removeUserSpot;
-      }
-
-      throw new AuthenticationError("You need to be logged in!");
+    removeDreamSpot: async (parent, { _id }) => {
+      return await Spot.findOneAndRemove({ _id });
     },
 
     //remove user
 
-    deleteUser: async (parent, { _id }, context) => {
+    deleteUser: async (parent, { email }, context) => {
       if (context.user) {
-        const deleteUser = await User.findByIdAndRemove({
-          _id: context.user._id,
+        const deleteUserSpot = await User.findOneAnddelete({
+          email: context.user._email,
         });
-        return deleteUser;
+        return deleteUserSpot;
       }
     },
   },
