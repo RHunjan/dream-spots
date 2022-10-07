@@ -60,7 +60,7 @@ const resolvers = {
       return spot;
     },
 
-    //add dream spot
+    //user adds dream spot to profile
     addDreamSpot: async (parent, { _id }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
@@ -75,21 +75,20 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    //remove dream spot
+    //admin remove dream spot
     removeDreamSpot: async (parent, { _id }) => {
       return await Spot.findOneAndRemove({ _id });
     },
 
-    //remove user
+    //user remove user
 
-    deleteUser: async (parent, { email }, context) => {
+    deleteUser: async (parent, { _id }, context) => {
       if (context.user) {
-        const deleteUserSpot = await User.findOneAnddelete({
-          email: context.user._email,
-        });
-        return deleteUserSpot;
+        return await User.findOneAndRemove({ _id });
       }
     },
+
+    // user remove spot
   },
 };
 

@@ -18,6 +18,7 @@ const typeDefs = gql`
     description: String
     category: String
     image: String
+    treat: String
   }
 
   type Auth {
@@ -38,7 +39,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addDreamSpot(_id: ID!): User
     removeDreamSpot(_id: ID!): Spot
-    deleteUser(email: String): User
+    deleteUser(_id: ID!): User
+    removeSpotUser(_id: ID!): User
 
     addSpot(
       _id: ID
