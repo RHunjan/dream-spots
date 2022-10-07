@@ -22,6 +22,13 @@ const resolvers = {
     spots: async () => {
       return Spot.find();
     },
+    // users
+    users: async () => {
+      return User.find().select("-__v -password").populate("spots");
+    },
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id });
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -54,13 +61,13 @@ const resolvers = {
     },
 
     //add dream spot
-    addDreamSpot: async (parent, args, context) => {
+    addDreamSpot: async (parent, { _id }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
+        const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { spots: args._id } },
+          { $push: { spots: { _id } } },
           { new: true }
-        ).populate("spots");
+        );
 
         return updatedUser;
       }
@@ -68,8 +75,19 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    users: async () => {
-      return User.find();
+    //remove dream spot
+    removeDreamSpot: async (parent, { _id }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { spots: { _id } } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };

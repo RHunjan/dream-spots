@@ -28,21 +28,24 @@ const typeDefs = gql`
   type Query {
     helloWorld: String
     spots: [Spot]
-    me: User
     users: [User]
+    user(_id: ID!): User
+    me: User
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addDreamSpot(spotId: ID!): User
+    addDreamSpot(_id: ID!): User
+    removeDreamSpot(_id: ID!): User
 
     addSpot(
-      spotId: ID
+      _id: ID
       city: String
       country: String
       temperature: String
       description: String
+      category: String
       image: String
     ): Spot
   }
