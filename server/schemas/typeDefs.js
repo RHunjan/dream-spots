@@ -20,6 +20,10 @@ const typeDefs = gql`
     image: String
   }
 
+  type removeDreamPayLoad {
+    removed: Boolean
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -38,6 +42,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addDreamSpot(_id: ID!): User
     removeDreamSpot(_id: ID!): User
+    deleteUser(_id: ID!): User
 
     addSpot(
       _id: ID

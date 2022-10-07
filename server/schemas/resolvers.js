@@ -65,7 +65,7 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { spots: { _id } } },
+          { $addToSet: { spots: { _id } } },
           { new: true }
         );
 
@@ -78,16 +78,26 @@ const resolvers = {
     //remove dream spot
     removeDreamSpot: async (parent, { _id }, context) => {
       if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
+        const removeUserSpot = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { spots: { _id } } },
-          { new: true }
+          { $pull: { spots: { _id } } }
         );
 
-        return updatedUser;
+        return removeUserSpot;
       }
 
       throw new AuthenticationError("You need to be logged in!");
+    },
+
+    //remove user
+
+    deleteUser: async (parent, { _id }, context) => {
+      if (context.user) {
+        const deleteUser = await User.findByIdAndRemove({
+          _id: context.user._id,
+        });
+        return deleteUser;
+      }
     },
   },
 };
