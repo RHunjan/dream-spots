@@ -179,13 +179,59 @@ main{
     flex-grow: 1;
 }
 
+.img-wrapper{
+    max-height: 560px;
+}
+
 /* requires square images from internet */
 img {
     border-radius: 3000px;
-    max-width: 80%;
+    width: 80%;
     max-height: 900px;
     margin: 40px;
+    object-fit: fill;
+}
+
+.add-btn{
+    border-radius: 1000px;
+    border: none;
+    background-color: var(--secondary-color);
+    max-width: 100px;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -125px;
+    left: 350px;
+    padding: 40px;
+}
+
+.add-btn:hover{
+    background-color: var(--accent-color-dark);
+    cursor: pointer;
+}
+/* with react, add function to add popout class when button is clicked, and a function to add hide class (set inteval to 1.5s delay so that popout animation occurs first) */
+.popout {
+    animation: popout 1.5s ease;
+    animation-fill-mode: both;
     
+}
+@keyframes popout {
+    0%{transform:scale(0)}
+    80%{transform:scale(1.05)}
+    100%{transform: scale(0)}
+}
+
+
+.add-icon{
+    color: white;
+    font-size: 50px;
+    padding: 40px;
+}
+
+.add-icon:hover{
+    color: var(--secondary-color);
 }
 
 .location{
