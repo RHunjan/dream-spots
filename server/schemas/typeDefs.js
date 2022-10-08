@@ -14,7 +14,7 @@ const typeDefs = gql`
     _id: ID
     city: String
     country: String
-    temperature: String
+    climate: String
     description: String
     category: String
     image: String
@@ -46,10 +46,11 @@ const typeDefs = gql`
       _id: ID
       city: String
       country: String
-      temperature: String
+      climate: String
       description: String
       category: String
       image: String
+      treat: String
     ): Spot
   }
 `;
