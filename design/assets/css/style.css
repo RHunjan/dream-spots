@@ -164,6 +164,7 @@ main{
    justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
+    margin-bottom: 60px;
 }
 
 .spot-card{
@@ -211,6 +212,27 @@ img {
     background-color: var(--accent-color-dark);
     cursor: pointer;
 }
+
+.remove-btn{
+    border-radius: 1000px;
+    border: none;
+    background-color: var(--secondary-color);
+    max-width: 100px;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -125px;
+    left: 350px;
+    padding: 40px;
+}
+
+.remove-btn:hover{
+    background-color: var(--accent-color-light);
+    cursor: pointer;
+}
+
 /* with react, add function to add popout class when button is clicked, and a function to add hide class (set inteval to 1.5s delay so that popout animation occurs first) */
 .popout {
     animation: popout 1.5s ease;
@@ -246,7 +268,7 @@ img {
 
 .description{
     font-weight: 300;
-    margin-top: 15px;
+    margin-top: 8px;
     font-size: 24px;
     margin-bottom: 10px;
     flex-grow: 1;
@@ -258,5 +280,15 @@ img {
 }
 
 .treat-answer{
+    font-weight: 300;
+}
+
+.climate{
+    margin-top: 15px;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.climate-answer{
     font-weight: 300;
 }
