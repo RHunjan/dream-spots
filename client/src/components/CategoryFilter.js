@@ -1,33 +1,48 @@
-import React from 'react'
-import WavesIcon from '@mui/icons-material/Waves';
-import FilterHdrIcon from '@mui/icons-material/FilterHdr';
-import BeachAccessIcon from '@mui/icons-material/BeachAccess';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
+import React from "react";
+import "../assets/css/style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUmbrellaBeach,
+  faBuilding,
+  faTree,
+  faMountain,
+} from "@fortawesome/free-solid-svg-icons";
 
 const CategoryFilter = () => {
   return (
-    <Box sx={{display: 'flex', margin: 'auto'}}>
-        <Box sx={{width: '270px', margin: 'auto'}}>
-            <Grid container>
-                <Button>
-                    <WavesIcon sx={{marginLeft: '10px', marginRight: '10px', cursor: 'pointer'}} />
-                </Button>
-                <Button>
-                    <FilterHdrIcon sx={{marginLeft: '10px', marginRight: '10px', cursor: 'pointer'}}  />
-                </Button>
-                <Button>
-                    <BeachAccessIcon sx={{marginLeft: '10px', marginRight: '10px' , cursor: 'pointer'}}  />
-                </Button>
-                <Button>
-                    <LocationCityIcon sx={{marginLeft: '10px', marginRight: '10px' , cursor: 'pointer'}}  />
-                </Button>
-            </Grid>   
-        </Box>   
-    </Box>
-  )
-}
+    <section>
+      <div class="category-icons">
+        <a href="#spot-cards">
+          <button style={{ border: "none", background: "none" }}>
+            <FontAwesomeIcon
+              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
+              icon={faUmbrellaBeach}
+            />
+          </button>
 
-export default CategoryFilter
+          <button style={{ border: "none", background: "none" }}>
+            <FontAwesomeIcon
+              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
+              icon={faBuilding}
+            />
+          </button>
+          <button style={{ border: "none", background: "none" }}>
+            <FontAwesomeIcon
+              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
+              icon={faTree}
+            />
+          </button>
+          <button style={{ border: "none", background: "none" }}>
+            <FontAwesomeIcon
+              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
+              icon={faMountain}
+            />
+          </button>
+        </a>
+      </div>
+      <h1 class="category-heading fade-in">We know a spot...</h1>
+    </section>
+  );
+};
+
+export default CategoryFilter;

@@ -1,37 +1,38 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import React from "react";
+import "../assets/css/style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-export default function VacationCard({vacation, type}) {
+const VacationCard = () => {
   return (
-    <Card sx={{ margin: '15px' }}>
-      <CardMedia
-        height="160"
-        width='50%'
-        component="img"
-        image="https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536"
-        alt="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {`${vacation.city}, ${vacation.country}`}
-        </Typography>
-        <Typography gutterBottom variant="h5" component="div">
-          {`${vacation.temperature} C`}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {vacation.description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button onClick={() => console.log('Todo - Add or remove items in userInfo favorites')} size="small">{type === 'userFavorites' ? <FavoriteIcon /> : <FavoriteBorderIcon />}</Button>
-      </CardActions>
-    </Card>
+    <div id="spot-cards" class="fade-in-delay">
+      <div class="spot-card">
+        <div class="img-wrapper">
+          <img
+            src="https://previews.123rf.com/images/farang/farang1301/farang130100065/17604363-tropical-beach-in-the-morning-square-composition-.jpg"
+            alt="tropical destination"
+          />
+          <button class="add-btn">
+            <FontAwesomeIcon
+              style={{ color: "white", height: "55px" }}
+              icon={faPlus}
+            />
+          </button>
+        </div>
+        <div class="card-text">
+          <h2 class="location">Bridgetown, Barbados</h2>
+          <h3 class="description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt
+            voluptatibus voluptas quo deleniti est itaque ipsum suscipit odit
+            quos!
+          </h3>
+          <h4 class="treat">
+            Treat: <span class="treat-answer">Lorem</span>
+          </h4>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default VacationCard;
