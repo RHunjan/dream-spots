@@ -22,7 +22,7 @@ const userSchema = new Schema(
       required: true,
     },
     // set savedSpots to be an array of data that adheres to the spotsSchema
-    savedSpots: [
+    spots: [
       {
         type: Schema.Types.ObjectId,
         ref: "Spot",

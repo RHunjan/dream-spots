@@ -7,7 +7,7 @@
         "treat": "New York-style bagel",
         "link": "./../../client/src/assets/images/1.jpg",
         "category": "city",
-        "spotId": "1"
+        "_id": "1"
     },
     {
         "city" : "Toronto", 
@@ -17,7 +17,7 @@
         "treat": "Ketchup chips",
         "link": "./../../client/src/assets/images/2.jpg",
         "category": "city",
-        "spotId": "2"
+        "_id": "2"
     },
     {
         "city" : "Port of Spain", 
@@ -27,7 +27,7 @@
         "treat": "Doubles",
         "link": "./../../client/src/assets/images/3.jpg",
         "category": "beach",
-        "spotId": "3"
+        "_id": "3"
     },
     {
         "city" : "Paris", 
@@ -37,7 +37,7 @@
         "treat": "Macarons",
         "link": "./../../client/src/assets/images/3.jpg",
         "category": "city",
-        "spotId": "4"
+        "_id": "4"
     },
     {
         "city" : "Grand Canyon Village", 
@@ -47,7 +47,7 @@
         "treat": "Chimichanga",
         "link": "./../../client/src/assets/images/5.jpg",
         "category": "mountain",
-        "spotId": "5"
+        "_id": "5"
     },
     {
         "city" : "Vancouver Island", 
@@ -57,7 +57,7 @@
         "treat": "Smoked Salmon",
         "link": "./../../client/src/assets/images/6.jpg",
         "category": "forest",
-        "spotId": "6"
+        "_id": "6"
     },
     {
         "city" : "Malé", 
@@ -67,7 +67,7 @@
         "treat": "Fried yams",
         "link": "./../../client/src/assets/images/7.jpg",
         "category": "beach",
-        "spotId": "7"
+        "_id": "7"
     }
 
 ]

@@ -14,24 +14,43 @@ const typeDefs = gql`
     _id: ID
     city: String
     country: String
-    temperature: String
+    climate: String
     description: String
     category: String
     image: String
+    treat: String
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Query {
     helloWorld: String
+    spots: [Spot]
+    users: [User]
+    user(_id: ID!): User
+    me: User
   }
 
   type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    addDreamSpot(_id: ID!): User
+    removeDreamSpot(_id: ID!): Spot
+    deleteUser(_id: ID!): User
+    removeSpotUser(_id: ID!): User
+
     addSpot(
+      _id: ID
       city: String
       country: String
-      temperature: String
-      category: String
+      climate: String
       description: String
+      category: String
       image: String
+      treat: String
     ): Spot
   }
 `;
