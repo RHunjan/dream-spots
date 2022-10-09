@@ -65,9 +65,9 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { spots: { _id } } },
+          { $addToSet: { spots: _id } },
           { new: true }
-        );
+        ).populate("spots");
 
         return updatedUser;
       }
@@ -89,6 +89,19 @@ const resolvers = {
     },
 
     // user remove spot
+    removeSpotUser: async (parent, { _id }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { spots: _id } },
+          { new: true }
+        ).populate("spots");
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 
