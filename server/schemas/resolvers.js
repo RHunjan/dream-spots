@@ -65,9 +65,9 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { spots: { _id } } },
+          { $addToSet: { spots: _id } },
           { new: true }
-        );
+        ).populate("spots");
 
         return updatedUser;
       }
@@ -93,9 +93,9 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { spots: { _id } } },
+          { $pull: { spots: _id } },
           { new: true }
-        );
+        ).populate("spots");
 
         return updatedUser;
       }
