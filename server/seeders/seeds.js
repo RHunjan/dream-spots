@@ -5,7 +5,7 @@ const { Spot } = require("../models");
 db.once("open", async () => {
   try {
     await Spot.deleteMany({});
-    await Spot.insertMany({ spotSeeds });
+    await Spot.insertMany(spotSeeds);
   } catch (err) {
     console.error(err);
     process.exit(1);

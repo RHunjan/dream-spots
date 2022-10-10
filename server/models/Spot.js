@@ -1,10 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const spotSchema = new Schema({
-  _id: {
-    type: String,
-  },
-
   city: {
     type: String,
     required: true,
