@@ -10,37 +10,36 @@ import {
 
 const CategoryFilter = () => {
   return (
+
     <section>
-      <div class="category-icons">
-        <a href="#spot-cards">
-          <button style={{ border: "none", background: "none" }}>
+      <div className="category-icons">
+          <button className="icon" style={{ border: "none", background: "none" }}>
+            
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
-              icon={faUmbrellaBeach}
-            />
+              style={{ color: "#f6a192", height: "55px", marginRight: "60px", cursor: "pointer" }}
+              icon={faUmbrellaBeach} />
           </button>
 
-          <button style={{ border: "none", background: "none" }}>
+          <button className="icon" style={{ border: "none", background: "none" }}>
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
+              style={{ color: "#f6a192", height: "55px", marginRight: "60px", cursor: "pointer" }}
               icon={faBuilding}
             />
           </button>
-          <button style={{ border: "none", background: "none" }}>
+          <button className="icon" style={{ border: "none", background: "none" }}>
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
+              style={{ color: "#f6a192", height: "55px", marginRight: "60px", cursor: "pointer" }}
               icon={faTree}
             />
           </button>
-          <button style={{ border: "none", background: "none" }}>
+          <button className="icon" style={{ border: "none", background: "none" }}>
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
+              style={{ color: "#f6a192", height: "55px", marginRight: "60px", cursor: "pointer" }}
               icon={faMountain}
             />
           </button>
-        </a>
       </div>
-      <h1 class="category-heading fade-in">We know a spot...</h1>
+      <h1 className="category-heading fade-in">We know a spot...</h1>
     </section>
   );
 };
