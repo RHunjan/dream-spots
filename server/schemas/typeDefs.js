@@ -43,7 +43,6 @@ const typeDefs = gql`
     removeSpotUser(_id: ID!): User
 
     addSpot(
-      _id: ID
       city: String
       country: String
       climate: String
