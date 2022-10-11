@@ -3,6 +3,7 @@ import CategoryFilter from "../components/CategoryFilter";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import VacationCard from "../components/VacationCard";
+import { useNavigate } from "react-router-dom";
 
 //TODO- call an api to get vacations List
 const vacations  = [
@@ -51,7 +52,9 @@ const userInfo = {
         }
     ]
 }
-const FrontPage = ({type}) => {
+const FrontPage = ({type, isAuth}) => {
+    const navigate= useNavigate()
+
     //Todo - call api here to get vacations list. Use Axios.get(url) to call API.   
     const [vacationsList, setVacationsList] = useState([]);
     useEffect(() => {
@@ -64,6 +67,11 @@ const FrontPage = ({type}) => {
         }
     }, [type])
 
+    useEffect(() => {
+        if(!isAuth){
+            navigate('/')
+        }
+    }, [navigate, isAuth])
     return (<Box>
                 <CategoryFilter />
                 <Grid container sx={{padding: 'auto'}}>      
