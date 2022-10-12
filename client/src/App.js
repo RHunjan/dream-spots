@@ -6,12 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute"
 import LoginOrSignup from "./components/LoginOrSignup"
-<<<<<<< HEAD
-
-
-=======
 import "./assets/css/style.css"
->>>>>>> develop
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   useEffect(() => {
@@ -19,11 +14,7 @@ function App() {
     setIsAuth(false)
   } , [])
   return (
-<<<<<<< HEAD
-   
-=======
     <div className="body">
->>>>>>> develop
     <BrowserRouter>
         <Header isLoggedIn={isAuth} />
         <Routes>
@@ -47,11 +38,7 @@ function App() {
         <Route path='/*' element={<div>Error Page</div>} /> 
         </Routes>
     </BrowserRouter>
-<<<<<<< HEAD
-    
-=======
     </div>
->>>>>>> develop
   );
 }
 

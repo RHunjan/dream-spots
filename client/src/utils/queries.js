@@ -13,3 +13,4 @@ export const QUERY_SPOTS = gql`
     }
   }
 `;
+

@@ -57,6 +57,7 @@ const FrontPage = ({type, isAuth}) => {
 
     const { loading, data } = useQuery(QUERY_SPOTS);
 
+    console.log(data);
     //const spots = data?.spots || [];
 
     //Todo - call api here to get vacations list. Use Axios.get(url) to call API.   
@@ -66,8 +67,9 @@ const FrontPage = ({type, isAuth}) => {
             setVacationsList(userInfo.savedSpots)
         }
         if(type === 'vacations')
-        {
-            setVacationsList(vacations)
+        {   
+            if(data?.spots?.length)
+            setVacationsList(data.spots)
         }
     }, [type])
 
@@ -80,7 +82,7 @@ const FrontPage = ({type, isAuth}) => {
                 <CategoryFilter />
                 <main>    
                     <div id="spot-cards" className="fade-in-delay">
-                    {vacationsList.map((vacation, i) => 
+                    { vacationsList.length > 0 && vacationsList.map((vacation, i) => 
                         <VacationCard type={type} key={i} vacation={vacation} />
                     )}
                     </div>
