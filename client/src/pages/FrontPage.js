@@ -5,34 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from '@apollo/client';
 import { QUERY_SPOTS } from '../utils/queries';
 
-//TODO- call an api to get vacations List
-const vacations  = [
-    {city: 'Las Vegas',
-     country: 'USA',
-     temperature: '22',
-     description: 'Las Vegas is awesome place to visit', 
-     image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536'
-    },
-    {city: 'Las Vegas',
-     country: 'USA',
-     temperature: '22',
-     description: 'Las Vegas is awesome place to visit', 
-     image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536'
-    },
-    {city: 'Las Vegas',
-     country: 'USA',
-     temperature: '22',
-     description: 'Las Vegas is awesome place to visit', 
-     image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536'
-    },
-    {city: 'Las Vegas',
-     country: 'USA',
-     temperature: '22',
-     description: 'Las Vegas is awesome place to visit', 
-     image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536'
-    },
-]
-
 const userInfo = {
     userName: 'Neet',
     email: 'neet@gmail.com',
