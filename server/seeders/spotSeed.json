@@ -5,7 +5,7 @@
         "climate": "Continental",
         "description": "New York is described as the economic and cultural capital of the world, and New York City is one of the most populous cities in the United States.",
         "treat": "New York-style bagel",
-        "image": "./../../client/src/assets/images/1.jpg",
+        "image": "../assets/images/1.jpg",
         "category": "city"
     
     },
@@ -15,7 +15,7 @@
         "climate": "Continental",
         "description": "Toronto is known for its many skyscrapers and high-rise buildings, in particular the tallest free-standing structure on land outside of Asia, the CN Tower.",
         "treat": "Ketchup chips",
-        "image": "./../../client/src/assets/images/2.jpg",
+        "image": "../assets/images/2.jpg",
         "category": "city"
    
     },
@@ -25,7 +25,7 @@
         "climate": "Hot humid tropical",
         "description": "Trinidad is extrovert, lively, full of music and activity and energy. Tobago is more introvert, more peaceful, with wonderful clear water and white-sand beaches. Tobago is where Trinidadians go to relax.",
         "treat": "Doubles",
-        "image": "./../../client/src/assets/images/3.jpg",
+        "image": "../assets/images/3.jpg",
         "category": "beach"
   
     },
@@ -35,7 +35,7 @@
         "climate": "Continental",
         "description": "Paris is known worldwide for the Louvre Museum, Notre-Dame cathedral, and the Eiffel tower. It has a reputation of being a romantic and cultural city.",
         "treat": "Macarons",
-        "image": "./../../client/src/assets/images/3.jpg",
+        "image": "../assets/images/3.jpg",
         "category": "city"
        
     },
@@ -45,7 +45,7 @@
         "climate": "Semi-arid",
         "description": "The Grand Canyon is considered one of the finest examples of arid-land erosion in the world. Incised by the Colorado River, the canyon is immense, averaging 4,000 feet deep for its entire 277 miles.",
         "treat": "Chimichanga",
-        "image": "./../../client/src/assets/images/5.jpg",
+        "image": "../assets/images/5.jpg",
         "category": "mountain"
         
     },
@@ -55,7 +55,7 @@
         "climate": "Oceanic",
         "description": "The largest island on the Pacific coast of North America. Vancouver Island is renown for its endless list of hiking, camping, and paddling adventures.",
         "treat": "Smoked Salmon",
-        "image": "./../../client/src/assets/images/6.jpg",
+        "image": "../assets/images/6.jpg",
         "category": "forest"
      
     },
@@ -65,7 +65,7 @@
         "climate": "Humid tropical monsoon",
         "description": "It is the ultimate dream of luxury and tranquility. Maldives is well known for its crystalline waters with beautiful shades of blue, swaying palm trees, and sparkling white sand under the limitless blue skies.",
         "treat": "Fried yams",
-        "image": "./../../client/src/assets/images/7.jpg",
+        "image": "../assets/images/7.jpg",
         "category": "beach"
         
     }
