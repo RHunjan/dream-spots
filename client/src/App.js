@@ -1,54 +1,82 @@
 import React, { useEffect, useState } from "react";
+
 import FrontPage from "./pages/FrontPage";
 import Header from "./components/Header";
-import { Routes, Route } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+// import Footer from './components/Footer';
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import LoginPage from "./components/LoginPage";
-import ProtectedRoute from "./components/ProtectedRoute";
+// import ProtectedRoute from "./components/ProtectedRoute";
 import LoginOrSignup from "./components/LoginOrSignup";
 import FavouriteSpots from "./components/FavouriteSpots";
 import "./assets/css/style.css";
+
+const httpLink = createHttpLink({
+  uri: process.env.NODE_ENV === 'development' ? "http://localhost:3001/graphql" : '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
-  useEffect(() => {
-    if(localStorage.getItem('_id')){
-      setIsAuth(true)
-    }
-  }, [])
+  // const [isAuth, setIsAuth] = useState(false);
+  // useEffect(() => {
+    //   if(localStorage.getItem('_id')){
+      //     setIsAuth(true)
+  //   }
+  // }, [])
   return (
+    <ApolloProvider client={client}>
+      <Router>
     <div className="body">
-      <BrowserRouter>
-        <Header isLoggedIn={isAuth} setIsAuth={setIsAuth}/>
+        <Header />
         <Routes>
-          <Route path="/" element={<LoginOrSignup isLoggedIn={isAuth} />} />
+          <Route path="/" element={<LoginOrSignup />} />
           <Route
             path="/login"
-            element={<LoginPage type="login" setIsAuth={setIsAuth} />}
+            element={<LoginPage />}
           />
           <Route
             path="/signup"
-            element={<LoginPage type="signup" setIsAuth={setIsAuth} />}
+            element={<LoginPage />}
           />
           <Route
             path="/spots"
             element={
-              <ProtectedRoute isAuth={isAuth}>
-                <FrontPage isAuth={isAuth} type="vacations" />
-              </ProtectedRoute>
+                <FrontPage />
             }
           />
           <Route
-            path="/favorites"
+            path="/favourites"
             element={
-              <ProtectedRoute isAuth={isAuth}>
-                <FavouriteSpots type="userFavorites" isAuth={isAuth} />
-              </ProtectedRoute>
+                <FavouriteSpots />
             }
           />
           <Route path="/*" element={<div>Error Page</div>} />
         </Routes>
-      </BrowserRouter>
     </div>
+    {/* <Footer /> */}
+      </Router>
+      </ApolloProvider>
   );
 }
 

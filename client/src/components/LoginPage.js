@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Grid, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { ADD_USER, LOGIN } from "../utils/queries";
+import { ADD_USER, LOGIN } from "../utils/mutations";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 
@@ -60,41 +60,43 @@ const LoginPage = ({ type, setIsAuth }) => {
   };
   return (
     <Formik
-      initialValues={
-        type === "signup" ? signUpInitialValues : loginInitialValues
-      }
-      validationSchema={type === "signup" ? signUpPageSchema : loginPageSchema}
+      // initialValues={
+      //   type === "signup" ? signUpInitialValues : loginInitialValues
+      // }
+      // validationSchema={type === "signup" ? signUpPageSchema : loginPageSchema}
       onSubmit={(values) => {
-        console.log(values);
-        if (type === "login") {
-          login({
-            variables: { email: values.email, password: values.password },
-          }).then((res) => {
-            if (res.data) {
-              setIsAuth(true);
-              localStorage.setItem("token", res.data.login.token);
-              localStorage.setItem("_id", res.data.login.user._id);
-              setUserInfo(res.data);
-              navigate("/spots");
-            }
-          });
-        } else if (type === "signup") {
-          addUser({
-            variables: {
-              email: values.email,
-              password: values.password,
-              username: values.username,
-            },
-          }).then((res) => {
-            if (res.data) {
-              setIsAuth(true);
-              localStorage.setItem("token", res.data.addUser.token);
-              localStorage.setItem("_id", res.data.addUser.user._id);
-              setUserInfo(res.data);
-              navigate("/spots");
-            }
-          });
-        }
+        login({
+          variables: { email: values.email, password: values.password },
+        }).then((res) => {
+          console.log("working")
+          if (res.data) {
+          // setIsAuth(true);
+            localStorage.setItem("id_token", res.data.login.token);
+            localStorage.setItem("_id", res.data.login.user._id);
+            setUserInfo(res.data);
+            navigate("/spots");
+          }
+        });
+        
+        // if (type === "login") {
+          
+        // } else if (type === "signup") {
+        //   addUser({
+        //     variables: {
+        //       email: values.email,
+        //       password: values.password,
+        //       username: values.username,
+        //     },
+        //   }).then((res) => {
+        //     if (res.data) {
+        //       // setIsAuth(true);
+        //       localStorage.setItem("id_token", res.data.addUser.token);
+        //       localStorage.setItem("_id", res.data.addUser.user._id);
+        //       setUserInfo(res.data);
+        //       navigate("/spots");
+        //     }
+        //   });
+        // }
       }}
     >
       {({ errors, touched }) => (
