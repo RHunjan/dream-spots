@@ -10,7 +10,7 @@ import * as Yup from "yup";
 const LoginPage = ({ type, setIsAuth }) => {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState({});
-  const [addUser] = useMutation(ADD_USER);
+  // const [addUser] = useMutation(ADD_USER);
   const [login] = useMutation(LOGIN);
   const loginPageSchema = Yup.object().shape({
     email: Yup.string().email().required("Required"),
