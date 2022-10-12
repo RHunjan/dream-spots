@@ -11,10 +11,10 @@ const Header = ({isLoggedIn, setIsAuth}) => {
       <nav>
         {isLoggedIn && <ul>
           <li>
-            <div style={{color: '#f6b092', fontSize: '18px', marginRight: '10px', cursor: 'pointer'}} onClick={() => navigate('/favorites')}>My Favourite Spots</div>
+            <div style={{color: '#f6b092', fontSize: '24px', marginRight: '18px', cursor: 'pointer'}} onClick={() => navigate('/favorites')}>My Favourite Spots</div>
           </li>
           <li>
-            <div style={{color: '#f6b092', fontSize: '18px', cursor: 'pointer'}}  onClick={() => {
+            <div style={{color: '#f6b092', fontSize: '24px', cursor: 'pointer'}}  onClick={() => {
             localStorage.clear();
             setIsAuth(false)
             navigate('/')

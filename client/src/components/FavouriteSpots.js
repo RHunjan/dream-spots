@@ -1,5 +1,4 @@
 import React from "react";
-import CategoryFilter from "../components/CategoryFilter";
 import VacationCard from "../components/VacationCard";
 import { useQuery } from "@apollo/client";
 import {  GET_FAVORITE_SPOTS } from "../utils/queries";
@@ -12,8 +11,7 @@ const FavouriteSpots = ({  type, isAuth }) => {
 
   if (!loading) {
     return (
-      <div className="wrapper">
-        <CategoryFilter />
+      <div className="wrapper saved-list">
         <main>
           <div id="spot-cards" className="fade-in-delay">
               {data?.me?.spots?.length > 0 &&

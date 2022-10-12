@@ -11,11 +11,10 @@ const VacationCard = (props) => {
   return (
     <div id="spot-cards" className="fade-in-delay">
       <div className="spot-card">
-        <div className="img-wrapper"></div>
         <div className="img-wrapper">
           <img
-            src="https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGFqJTIwbWFoYWx8ZW58MHx8MHx8&w=1000&q=80"
-            alt=""
+            src={props.spot.image}
+            alt={props.spot.city}
           />
           <button onClick={() => {
             addDreamSpot({variables: {_id: props.spot._id}}).then(res => console.log(res))
