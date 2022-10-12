@@ -30,7 +30,7 @@ const VacationCard = (props) => {
           <h2 className="location">{props.spot.city}</h2>
           <h3 className="description">{props.spot.description}</h3>
           <h4 className="treat">
-            Treat: <span className="treat-answer">{props.spot.treat}</span>d
+            Treat: <span className="treat-answer">{props.spot.treat}</span>
           </h4>
         </div>
       </div>
