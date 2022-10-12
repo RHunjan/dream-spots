@@ -1,6 +1,6 @@
 import React from "react";
 import "../assets/css/style.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const Header = ({isLoggedIn, setIsAuth}) => {
   const navigate  = useNavigate();  
   return (
@@ -11,10 +11,13 @@ const Header = ({isLoggedIn, setIsAuth}) => {
       <nav>
         {isLoggedIn && <ul>
           <li>
-            <div style={{color: '#f6b092', fontSize: '18px', marginRight: '10px', cursor: 'pointer'}} onClick={() => navigate('/favorites')}>My Favourite Spots</div>
+            <div style={{color: '#f6b092', fontSize: '24px', marginRight: '18px', cursor: 'pointer'}} onClick={() => navigate('/spots')}>Find a Spot</div>
           </li>
           <li>
-            <div style={{color: '#f6b092', fontSize: '18px', cursor: 'pointer'}}  onClick={() => {
+            <div style={{color: '#f6b092', fontSize: '24px', marginRight: '18px', cursor: 'pointer'}} onClick={() => navigate('/favorites')}>My Favourite Spots</div>
+          </li>
+          <li>
+            <div style={{color: '#f6b092', fontSize: '24px', cursor: 'pointer'}}  onClick={() => {
             localStorage.clear();
             setIsAuth(false)
             navigate('/')
