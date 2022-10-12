@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from "react";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 import FrontPage from "./pages/FrontPage";
 import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
@@ -8,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute"
 import LoginOrSignup from "./components/LoginOrSignup"
+import "./assets/css/style.css"
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   useEffect(() => {
@@ -15,16 +14,14 @@ function App() {
     setIsAuth(false)
   } , [])
   return (
+    <div className="body">
     <BrowserRouter>
-      <Box>
         <Header isLoggedIn={isAuth} />
         <Routes>
           <Route
             path="/"
             element={
-              <Grid container>
                 <LoginOrSignup isLoggedIn={isAuth} />
-              </Grid>
             }
           />
           <Route path='/login' element={<LoginPage type='login' setIsAuth={setIsAuth} />} /> 
@@ -40,8 +37,8 @@ function App() {
         />
         <Route path='/*' element={<div>Error Page</div>} /> 
         </Routes>
-      </Box>
     </BrowserRouter>
+    </div>
   );
 }
 
