@@ -1,5 +1,4 @@
 import React from "react";
-import "../assets/css/style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUmbrellaBeach,
@@ -13,29 +12,29 @@ const CategoryFilter = () => {
 
     <section>
       <div className="category-icons">
-          <button className="icon" style={{ border: "none", background: "none" }}>
+          <button style={{ border: "none", background: "none" }}>
             
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "60px", cursor: "pointer" }}
-              icon={faUmbrellaBeach} />
+              icon={faUmbrellaBeach}
+              className="icon" />
           </button>
 
-          <button className="icon" style={{ border: "none", background: "none" }}>
+          <button style={{ border: "none", background: "none" }}>
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "60px", cursor: "pointer" }}
               icon={faBuilding}
+              className="icon"
             />
           </button>
-          <button className="icon" style={{ border: "none", background: "none" }}>
+          <button style={{ border: "none", background: "none" }}>
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "60px", cursor: "pointer" }}
               icon={faTree}
+              className="icon"
             />
           </button>
-          <button className="icon" style={{ border: "none", background: "none" }}>
+          <button  style={{ border: "none", background: "none" }}>
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "60px", cursor: "pointer" }}
               icon={faMountain}
+              className="icon"
             />
           </button>
       </div>
