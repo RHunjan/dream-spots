@@ -5,8 +5,8 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      if (true) {
-        const userData = await User.findOne({ _id: '634640097ca4d26e9e769442' })
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
           .populate("spots");
 
@@ -62,9 +62,9 @@ const resolvers = {
 
     //user adds dream spot to profile
     addDreamSpot: async (parent, { _id }, context) => {
-      if (true) {
+      if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
-          { _id: '634640097ca4d26e9e769442' },
+          { _id: context.user._id  },
           { $addToSet: { spots: _id } },
           { new: true }
         ).populate("spots");

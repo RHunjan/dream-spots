@@ -1,6 +1,7 @@
 import React from "react";
 import CategoryFilter from "../components/CategoryFilter";
-import VacationCard from "../components/VacationCard";
+import VacationCard from "../components/VacationSpots";
+
 import { useQuery } from "@apollo/client";
 import { QUERY_SPOTS } from "../utils/queries";
 
@@ -8,7 +9,7 @@ const FrontPage = ({ type, isAuth }) => {
   const { loading, data } = useQuery(QUERY_SPOTS);
   //todo add spinner from MUI
   if (loading) {
-    return <div>Spinner</div>;
+    return "";
   }
 
   if (!loading) {
