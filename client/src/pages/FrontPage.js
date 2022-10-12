@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import CategoryFilter from "../components/CategoryFilter";
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import VacationCard from "../components/VacationCard";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from '@apollo/client';
+import { QUERY_SPOTS } from '../utils/queries';
 
 //TODO- call an api to get vacations List
 const vacations  = [
@@ -53,7 +53,12 @@ const userInfo = {
     ]
 }
 const FrontPage = ({type, isAuth}) => {
-    const navigate= useNavigate()
+    const navigate= useNavigate();
+
+    const { loading, data } = useQuery(QUERY_SPOTS);
+
+    console.log(data);
+    //const spots = data?.spots || [];
 
     //Todo - call api here to get vacations list. Use Axios.get(url) to call API.   
     const [vacationsList, setVacationsList] = useState([]);
@@ -62,8 +67,9 @@ const FrontPage = ({type, isAuth}) => {
             setVacationsList(userInfo.savedSpots)
         }
         if(type === 'vacations')
-        {
-            setVacationsList(vacations)
+        {   
+            if(data?.spots?.length)
+            setVacationsList(data.spots)
         }
     }, [type])
 
@@ -72,14 +78,16 @@ const FrontPage = ({type, isAuth}) => {
             navigate('/')
         }
     }, [navigate, isAuth])
-    return (<Box>
+    return (<div className="wrapper">
                 <CategoryFilter />
-                <Grid container sx={{padding: 'auto'}}>      
-                    {vacationsList.map((vacation, i) => 
+                <main>    
+                    <div id="spot-cards" className="fade-in-delay">
+                    { vacationsList.length > 0 && vacationsList.map((vacation, i) => 
                         <VacationCard type={type} key={i} vacation={vacation} />
                     )}
-                </Grid>
-            </Box>)
+                    </div>
+                </main>  
+            </div>)
 }
 
 export default FrontPage;
