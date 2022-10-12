@@ -30,7 +30,7 @@ export const ADD_USER = gql`
 `;
 
 export const LOGIN = gql`
-    mutation addUser($password: String!, $email: String!) {
+    mutation login($password: String!, $email: String!) {
         login(password: $password, email: $email){
             token
             user {
@@ -43,7 +43,7 @@ export const LOGIN = gql`
 `;
 
 export const ADD_DREAM_SPOT = gql`
-    mutation addDreamSpot($_d: ID!) {
+    mutation addDreamSpot($_id: ID!) {
         addDreamSpot(_id: $_id){
             _id
             username
@@ -68,9 +68,10 @@ export const REMOVE_SPOT_USER = gql`
     }
 `;
 
-
+//todo - query schema
 export const GET_FAVORITE_SPOTS = gql`
     query me {
+        me {
         _id
         username
         email
@@ -84,7 +85,7 @@ export const GET_FAVORITE_SPOTS = gql`
           image
           treat
         }
-      }
+      }}
 `;
 
 

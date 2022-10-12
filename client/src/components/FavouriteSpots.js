@@ -2,11 +2,10 @@ import React from "react";
 import CategoryFilter from "../components/CategoryFilter";
 import VacationCard from "../components/VacationCard";
 import { useQuery } from "@apollo/client";
-import { QUERY_SPOTS } from "../utils/queries";
+import {  GET_FAVORITE_SPOTS } from "../utils/queries";
 
-const FrontPage = ({ type, isAuth }) => {
-  const { loading, data } = useQuery(QUERY_SPOTS);
-  //todo add spinner from MUI
+const FavouriteSpots = ({  type, isAuth }) => {
+  const { loading, data } = useQuery(GET_FAVORITE_SPOTS);
   if (loading) {
     return <div>Spinner</div>;
   }
@@ -17,8 +16,8 @@ const FrontPage = ({ type, isAuth }) => {
         <CategoryFilter />
         <main>
           <div id="spot-cards" className="fade-in-delay">
-            {data?.spots?.length > 0 &&
-              data.spots.map((spot, i) => (
+              {data?.me?.spots?.length > 0 &&
+              data?.me?.spots?.map((spot, i) => (
                 <VacationCard type={type} key={i} spot={spot} />
               ))}
           </div>
@@ -28,4 +27,4 @@ const FrontPage = ({ type, isAuth }) => {
   }
 };
 
-export default FrontPage;
+export default FavouriteSpots;

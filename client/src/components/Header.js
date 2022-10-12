@@ -1,33 +1,24 @@
 import React from "react";
 import "../assets/css/style.css";
 import { useNavigate } from "react-router-dom";
-const Header = ({isLoggedIn}) => {
-  const navigate  = useNavigate()
+const Header = ({isLoggedIn, setIsAuth}) => {
+  const navigate  = useNavigate();  
   return (
-    <header>
+   <header>
       <h1>
         <a href="/">Dream Spots</a>
       </h1>
       <nav>
         {isLoggedIn && <ul>
           <li>
-            <a href="/">Find a spot</a>
+            <div style={{color: '#f6b092', fontSize: '18px', marginRight: '10px', cursor: 'pointer'}} onClick={() => navigate('/favorites')}>My Favourite Spots</div>
           </li>
           <li>
-            <a href="/">My dream spots</a>
-          </li>
-          <li onClick={() => {
-            if(!isLoggedIn){
-              navigate('/')
-            }
-            if(isLoggedIn){
-              console.log('loggedout')
-              //Todo Call API to log user Out
-            }
-          }}>
-            <a href="/">
-             Logout
-            </a>
+            <div style={{color: '#f6b092', fontSize: '18px', cursor: 'pointer'}}  onClick={() => {
+            localStorage.clear();
+            setIsAuth(false)
+            navigate('/')
+          }}>Logout</div>
           </li>
         </ul>}
       </nav>
