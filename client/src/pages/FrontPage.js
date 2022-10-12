@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import VacationCard from "../components/VacationCard";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from '@apollo/client';
+import { QUERY_SPOTS } from '../utils/queries';
 
 //TODO- call an api to get vacations List
 const vacations  = [
@@ -53,7 +55,11 @@ const userInfo = {
     ]
 }
 const FrontPage = ({type, isAuth}) => {
-    const navigate= useNavigate()
+    const navigate= useNavigate();
+
+    const { loading, data } = useQuery(QUERY_SPOTS);
+
+    //const spots = data?.spots || [];
 
     //Todo - call api here to get vacations list. Use Axios.get(url) to call API.   
     const [vacationsList, setVacationsList] = useState([]);

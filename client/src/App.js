@@ -8,6 +8,8 @@ import { BrowserRouter } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute"
 import LoginOrSignup from "./components/LoginOrSignup"
+
+
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   useEffect(() => {
@@ -15,6 +17,7 @@ function App() {
     setIsAuth(false)
   } , [])
   return (
+   
     <BrowserRouter>
       <Box>
         <Header isLoggedIn={isAuth} />
@@ -42,6 +45,7 @@ function App() {
         </Routes>
       </Box>
     </BrowserRouter>
+    
   );
 }
 
