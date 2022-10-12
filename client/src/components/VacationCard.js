@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "../assets/css/style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -6,8 +6,9 @@ import { ADD_DREAM_SPOT } from "../utils/queries";
 import { useMutation } from "@apollo/client";
 
 const VacationCard = (props) => {
-  const [addDreamSpot, { data, loading }] = useMutation(ADD_DREAM_SPOT);
+  const [addDreamSpot, {data, loading}] = useMutation(ADD_DREAM_SPOT);
   console.log(props.spot);
+
   return (
     <div id="spot-cards" className="fade-in-delay">
       <div className="spot-card">
