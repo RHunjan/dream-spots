@@ -1,5 +1,4 @@
 import React from "react";
-import "../assets/css/style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUmbrellaBeach,
@@ -10,37 +9,36 @@ import {
 
 const CategoryFilter = () => {
   return (
+
     <section>
-      <div class="category-icons">
-        <a href="#spot-cards">
+      <div className="category-icons">
           <button style={{ border: "none", background: "none" }}>
+            
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
               icon={faUmbrellaBeach}
-            />
+              className="icon" />
           </button>
 
           <button style={{ border: "none", background: "none" }}>
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
               icon={faBuilding}
+              className="icon"
             />
           </button>
           <button style={{ border: "none", background: "none" }}>
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
               icon={faTree}
+              className="icon"
             />
           </button>
-          <button style={{ border: "none", background: "none" }}>
+          <button  style={{ border: "none", background: "none" }}>
             <FontAwesomeIcon
-              style={{ color: "#f6a192", height: "55px", marginRight: "30px" }}
               icon={faMountain}
+              className="icon"
             />
           </button>
-        </a>
       </div>
-      <h1 class="category-heading fade-in">We know a spot...</h1>
+      <h1 className="category-heading fade-in">We know a spot...</h1>
     </section>
   );
 };
