@@ -1,5 +1,4 @@
 import React from "react";
-import CategoryFilter from "../CategoryFilter";
 import VacationCard from "../VacationSpots";
 import { useQuery } from "@apollo/client";
 import {  GET_FAVORITE_SPOTS } from "../../utils/queries";

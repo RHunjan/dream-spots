@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 
 import FrontPage from "./pages/FrontPage";
+import EntryPage from "./pages/EntryPage";
 import Header from "./components/Header";
 // import Footer from './components/Footer';
 

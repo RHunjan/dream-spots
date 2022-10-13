@@ -22,11 +22,11 @@ const LoginPage = ({ type, setIsAuth }) => {
     username: Yup.string().required("Required"),
   });
 
-//   useEffect(() => {
-//     if (userInfo) {
-//       navigate("/spots");
-//     }
-//   }, [navigate, userInfo]);
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     navigate("/spots");
+  //   }
+  // }, [navigate, userInfo]);
   const loginInitialValues = {
     email: "",
     password: "",
@@ -60,10 +60,10 @@ const LoginPage = ({ type, setIsAuth }) => {
   };
   return (
     <Formik
-      // initialValues={
-      //   type === "signup" ? signUpInitialValues : loginInitialValues
-      // }
-      // validationSchema={type === "signup" ? signUpPageSchema : loginPageSchema}
+      initialValues={
+        type === "signup" ? signUpInitialValues : loginInitialValues
+      }
+      validationSchema={type === "signup" ? signUpPageSchema : loginPageSchema}
       onSubmit={(values) => {
         login({
           variables: { email: values.email, password: values.password },
@@ -77,26 +77,24 @@ const LoginPage = ({ type, setIsAuth }) => {
             navigate("/spots");
           }
         });
-        
-        // if (type === "login") {
-          
-        // } else if (type === "signup") {
-        //   addUser({
-        //     variables: {
-        //       email: values.email,
-        //       password: values.password,
-        //       username: values.username,
-        //     },
-        //   }).then((res) => {
-        //     if (res.data) {
-        //       // setIsAuth(true);
-        //       localStorage.setItem("id_token", res.data.addUser.token);
-        //       localStorage.setItem("_id", res.data.addUser.user._id);
-        //       setUserInfo(res.data);
-        //       navigate("/spots");
-        //     }
-        //   });
-        // }
+      
+      if (type === "signup") {
+          addUser({
+            variables: {
+              email: values.email,
+              password: values.password,
+              username: values.username,
+            },
+          }).then((res) => {
+            if (res.data) {
+              // setIsAuth(true);
+              localStorage.setItem("id_token", res.data.addUser.token);
+              localStorage.setItem("_id", res.data.addUser.user._id);
+              setUserInfo(res.data);
+              navigate("/spots");
+            }
+          });
+        }
       }}
     >
       {({ errors, touched }) => (
