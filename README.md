@@ -23,6 +23,7 @@ To get started using Dreamspots...
 1. Navigate to the deployed site at :
 2. Start exploring your dream destinations!
 
+![Homepage](./client/src/assets/images/readme.jpg)
 
 ## License
 This project is not licensed.
@@ -38,5 +39,5 @@ If you would like to contribute to this repository, please first discuss the cha
 ## Questions
 If you have any questions about this project repository, please feel free to contact its owners.
   #### [katiebutler37](https://github.com/katiebutler37)
-  #### []()
-  #### []()
+  #### [RHunjan](https://github.com/RHunjan)
+  #### [neetsabharwal](https://github.com/neetsabharwal)
